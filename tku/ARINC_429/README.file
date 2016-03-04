@@ -1,0 +1,7 @@
+Description of files:
+ADR_DAT_BL.v- data block. This block want to transmit DAT to ADR.
+AR_TXD.v    - transmitter.
+AR_RXD.v    - receiver.
+DISPLAY.v   - 16 bits display (4 seven-segment LED).
+LAB405AD.v  - main block, that contain all previous blocks with needed connections.
+LAB405AD.ucf- ucf file for Digilent Nexys2 Board.
