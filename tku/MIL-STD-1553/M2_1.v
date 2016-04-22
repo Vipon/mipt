@@ -18,10 +18,10 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module M2_1(	input D0,	output wire O,
-					input D1,
-					input S0
-    );
+module M2_1(input D0,	output wire O,
+            input D1,
+            input S0);
+            
 assign O = S0? D1: D0;
 
 endmodule

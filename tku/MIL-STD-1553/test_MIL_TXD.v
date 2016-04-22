@@ -64,7 +64,7 @@ module test_MIL_TXD;
 
 	initial begin
 		// Initialize Inputs
-					dat = 0; txen = 0; 			//
+					dat = 0;        txen = 0; 			//
 		#2000; 		dat = 16'h1234; txen = 1; 	// my CW
 		#21000; 	dat = 16'h5678; txen = 1; 	// my WD
 		#20000; 	dat = 16'h0000; txen = 0;
