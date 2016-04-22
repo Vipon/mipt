@@ -49,17 +49,19 @@ module MIL_RXD(input In_P,	output wire ok_SY, 			//Есть синхроимпульс
 	reg [74:0]bufN 		= 0;
 	reg [6:0]cb_SY_DW 	= 0;
 	reg [6:0]cb_SY_CW 	= 0;
+	reg _cw_dw				= 0;
 	
 	assign ok_SY_CW		= (cb_SY_CW >= ref_SY);				// current word is control
 	assign ok_SY_DW		= (cb_SY_DW	>=	ref_SY);
 	assign ok_SY			= (ok_SY_CW | ok_SY_DW);			// currrent word is data
-	assign CW_DW 			= ok_SY_CW ? 1 : 0;
+	assign CW_DW 			= _cw_dw;
 	assign D_RXN			= bufN[74];
 	assign Neg_detect 	= RXP & D_RXN;
 	
 	always @( posedge clk ) begin
 		bufN <= (bufN << 1) + RXN;
 		cb_SY_DW <= Neg_detect ? (cb_SY_DW + 1) : 0;
+		_cw_dw 	<= ok_rx ? 0 : (ok_SY_CW) ? 1 : ok_SY_DW ? 0 : _cw_dw;
 	end
 	
 	// Detecting control word
@@ -102,7 +104,7 @@ module MIL_RXD(input In_P,	output wire ok_SY, 			//Есть синхроимпульс
 		data		<= ok_SY  ? 0		: (ce_bit & T_dat)? ((data << 1) | RXN): data;
 		FP			<= ok_SY  ? 0		: (ce_bit & T_dat)? (FP ^ RXN) 			: FP;
 		
-		OK			<= ok_SY  ? 0		: (T_end & ce_bit)? (FP == RXP)			: OK; 
+		OK			<= (ok_SY|OK)  ? 0		: (T_end & ce_bit)? (FP == RXP)			: OK; 
 	end	
 	
 endmodule
