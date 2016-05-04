@@ -1,0 +1,8 @@
+This repository contain verilog code for MIPT telecommunication Labs.
+
+Folsder description:
+    LabTKU       - Contain labs descriptions.
+    ARINC_429    - It's first Lab_405AD.
+    Lab_4041B    - Second lab.
+    MIL-STD-1553 - Third lab. Lab_406AD.
+    Lab_407ND    - Last lab.
