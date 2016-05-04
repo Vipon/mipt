@@ -1,0 +1,25 @@
+Description files:
+    Sch_Lab407ND.v - Main module, that contain all connections.
+                     In module SW[1:0] are used for chosing information,
+                     which displied at 4 7-seg indicators.
+                     SW[1:0] == 0b00: Master Transmited Data.
+                     SW[1:0] == 0b01: Master Received Data.
+                     SW[1:0] == 0b10: Slave Transmited Data.
+                     SW[1:0] == 0b11: Slave Received Data.
+                     
+                     if (SW[2] == 0b1) then
+                        work with two boards
+                     else
+                        work on one board
+    SPI_MASTER.v   - Master.
+    SPI_SLAVE.v    - Slave.
+    Gen_st.v       - Module is to generate start signal.
+    SOURCE_DAT.v   - Module it to generate data for Master and Slave.
+    M2_1.v         - Multiplexer.
+    MUX64_16.v     - Multiplexer.
+    DISPLAY.v      - Module for 7-seg indicator.
+    
+    Sch_Lab407ND.ucf - Ucf file for Digilent Nexys2 Board.
+    Sch_test_SLAVE.v - Module for testBanch tf_Test_SPI.v.
+    tf_Test_SPI.v    - Test Master and Slave comunication.
+    
