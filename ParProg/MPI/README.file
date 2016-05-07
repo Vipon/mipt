@@ -1,4 +1,2 @@
-These programs was maked for Parallel progremming lessons.
-It's training for work with Message Passing Interface(MPI).
-I used С++ version. To compile you need used mpic++ and
-you can run program as usual - mpirun.
+These programs was maked for Parallel progremming lessons. It's training for work with Message Passing Interface(MPI). 
+I used С++ version. To compile you need used mpic++ and you can run program as usual - mpirun.
