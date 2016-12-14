@@ -1,0 +1,2 @@
+mpi_ping_pong.cpp: output - terminal
+mpi_ping_pongFile.cpp: output - file(err.txt)
