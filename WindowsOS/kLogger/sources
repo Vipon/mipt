@@ -1,0 +1,7 @@
+TARGETNAME=klog
+TARGETPATH=.
+TARGETTYPE=DRIVER
+
+SOURCES= \
+    test.c      \
+	kLogger.c	\
