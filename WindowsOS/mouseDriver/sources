@@ -1,0 +1,6 @@
+TARGETNAME=viponMouse
+TARGETPATH=.
+TARGETTYPE=DRIVER
+
+SOURCES= \
+    viponMouse.c

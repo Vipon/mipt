@@ -1,0 +1,115 @@
+; viponMouse.inf
+;
+; (c) Copyright
+;
+
+[Version]
+Signature="$Windows NT$"
+Provider=%VIPON%
+ClassGUID={4D36E96F-E325-11CE-BFC1-08002BE10318}
+Class=Mouse
+CatalogFile=viponMouse.cat
+DriverVer=01/31/2017,20.1.6.570
+;Month/Day/Year
+
+[DestinationDirs]
+DefaultDestDir   = 12
+
+;
+; Driver information
+;
+
+[Manufacturer]
+%VIPON% = Vipon.Mfg
+
+[Vipon.Mfg]
+%MouseDesc% = viponMouse, HID_DEVICE_SYSTEM_MOUSE
+;for PS2: %MouseDesc% = viponMouse, *PNP0FAKE
+
+;
+; General installation section
+;
+
+[viponMouse]
+; perform port related actions from viponMouse.inf
+Include=viponMouse.inf
+Needs=HID_Mouse_Inst.NT
+;for PS2: Needs=PS2_Inst
+
+; Copy the driver over
+CopyFiles=viponMouse.CopyFiles
+
+;
+; File sections
+;
+
+[viponMouse.CopyFiles]
+viponMouse.sys
+
+;
+; Service Installation
+;
+
+[viponMouse.Services]
+AddService = viponMouse,  , viponMouse_Service_Inst
+; Install the port driver and mouclass from viponMouse.inf
+Include=viponMouse.inf
+Needs=HID_Mouse_Inst.NT.Services
+;for PS2: Needs=PS2_Inst.Services
+
+[viponMouse_Service_Inst]
+DisplayName    = %viponMouse.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 0                  ; SERVICE_ERROR_IGNORE
+LoadOrderGroup = Pointer Port
+ServiceBinary  = %12%\viponMouse.sys
+
+[viponMouse.HW]
+; Add the device upper filter
+AddReg = viponMouse.HW.AddReg
+
+; run the directives need by the port driver
+Include=viponMouse.inf
+Needs=HID_Mouse_Inst.NT.HW
+;for PS2: Needs=PS2_Inst.HW
+
+[viponMouse.HW.AddReg]
+HKR,,"UpperFilters",0x00010000,"viponMouse"
+
+
+;
+; Source file information
+;
+
+; use [SourceDisksNames.x86] for x86 only installs
+; use [SourceDisksNames.alpha] for alpha only installs
+
+[SourceDisksNames]
+1 = %DiskId1%,,,
+
+[SourceDisksFiles]
+viponMouse.sys = 1,,
+
+
+[Strings]
+
+;
+; Non-Localizable Strings
+;
+
+REG_SZ         = 0x00000000
+REG_MULTI_SZ   = 0x00010000
+REG_EXPAND_SZ  = 0x00020000
+REG_BINARY     = 0x00000001
+REG_DWORD      = 0x00010001
+SERVICEROOT    = "System\CurrentControlSet\Services"
+
+;
+; Localizable Strings
+;
+
+DiskId1 = "Mouse Filter Installation Disk"
+VIPON = "Vipon"
+MouseDesc = "filtered USB Mouse Device"
+viponMouse.SvcDesc="Mouse Filter"
