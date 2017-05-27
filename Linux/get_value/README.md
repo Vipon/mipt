@@ -1,0 +1,1 @@
+**get_value.c** - example from man how to use strtol.
