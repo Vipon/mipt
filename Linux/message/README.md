@@ -1,0 +1,1 @@
+**msg.c** - example work with message queue.
