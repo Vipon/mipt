@@ -1,0 +1,4 @@
+main
+temp*
+*.o
+.DS_Store

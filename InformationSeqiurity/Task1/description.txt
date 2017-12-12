@@ -1,0 +1,9 @@
+Your friend's files were encrypted by cryptor. You need to get a secret from a task.enc.
+
+Fortunately you have an unencrypted copy of a description.txt. As well as
+a source code of crypto software. I hope it helps you to find an ecryption
+password and decrypt the task.enc.
+
+Solution is a secret from the task file.
+
+Good luck.

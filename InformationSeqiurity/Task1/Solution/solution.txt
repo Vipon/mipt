@@ -1,0 +1,4 @@
+Don't invent a wheel.
+Your secret: 427e654d7d33560ddf0c5c0b38e629468ae2594b
+
+https://blog.malwarebytes.com/threat-analysis/2016/11/telecrypt-the-ransomware-abusing-telegram-api-defeated/
