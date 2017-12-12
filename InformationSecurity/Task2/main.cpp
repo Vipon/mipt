@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
     std::ifstream f_enc("image_430x401.enc", std::ifstream::in);
     std::ifstream f_dec("test_430x401.raw", std::ifstream::in);
     std::ifstream secret("secret_430x401.enc", std::ifstream::in);
-    std::ofstream solution("solution_430x401", std::ofstream::out);
+    std::ofstream solution("solutionTask2_430x401.png", std::ofstream::out);
 
     int pos = 0;
     char keyByte = 0;

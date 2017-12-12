@@ -10,6 +10,6 @@ int main(int argc, char *argv[])
     std::string key = cc.identify_key("description.enc", "description.txt");
     cc.decryption(  key,
                     "task.enc",
-                    "solution.txt" );
+                    "solutionTask1.txt" );
     return 0;
 }
